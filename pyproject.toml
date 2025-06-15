@@ -1,0 +1,20 @@
+[project]
+name = "Firehouse OS"
+version = "0.1.0"
+description = "from the west side, with love"
+authors = [
+    { name = "Kennon Stewart", email = "kennon@secondstreetlabs.io" }
+]
+readme = "README.md"
+requires-python = ">=3.8"
+
+# Add dependencies here
+dependencies = [
+    "numpy",
+    "opencv-python",
+    "deepface" # <--- ADD THIS LINE
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
