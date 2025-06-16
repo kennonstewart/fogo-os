@@ -8,11 +8,10 @@ authors = [
 readme = "README.md"
 requires-python = ">=3.8"
 
-# Add dependencies here
 dependencies = [
     "numpy",
     "opencv-python",
-    "deepface" # <--- ADD THIS LINE
+    "deepface" 
 ]
 
 [build-system]
