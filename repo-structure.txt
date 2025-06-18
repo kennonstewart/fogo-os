@@ -1,0 +1,34 @@
+.
+├── .env
+├── .gitignore
+├── Dockerfile
+├── LICENSE
+├── README.md
+├── facial_recognition.ipynb
+├── firehouse
+│   ├── api
+│   │   ├── admin.py
+│   │   ├── analyze.py
+│   │   ├── endpoints.py
+│   │   ├── health.py
+│   │   ├── register_face.py
+│   │   ├── results.py
+│   │   └── stream_frame.py
+│   ├── app
+│   ├── core
+│   │   ├── config.py
+│   │   └── logger.py
+│   ├── main.py
+│   ├── schemas
+│   │   └── analyze.py
+│   └── services
+│       └── recognition.py
+├── pyproject.toml
+├── repo-structure.txt
+└── videos
+    ├── dad.HEIC
+    ├── dad_walking.mp4
+    ├── dad_walking_cropped.mp4
+    └── me.jpeg
+
+7 directories, 24 files
