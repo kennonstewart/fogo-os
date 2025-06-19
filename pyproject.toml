@@ -11,5 +11,6 @@ dependencies = [
     "numpy",
     "opencv-python",
     "deepface",
-    "tf-keras"
+    "tf-keras",
+    "awscli"
 ]
