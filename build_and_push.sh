@@ -2,11 +2,15 @@
 
 set -e
 
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+
 # -------- CONFIGURATION --------
 AWS_REGION="us-east-2"
 ACCOUNT_ID="$(aws sts get-caller-identity --query Account --output text)"
 REPO_NAME="firehouse-frame-processor"
-ECR_URI="${ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${REPO_NAME}"
+ECR_URI="865117862950.dkr.ecr.${AWS_REGION}.amazonaws.com/${REPO_NAME}"
 TAG="latest"
 # --------------------------------
 
