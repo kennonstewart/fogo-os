@@ -50,20 +50,12 @@ resource "aws_iam_role_policy_attachment" "lambda_logs" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }
 
-resource "aws_lambda_layer_version" "deepface_layer" {
-  layer_name          = "deepface-dependencies"
-  compatible_runtimes = ["python3.11"]
-  s3_bucket           = "ssl-865117862950-lambda-layer"
-  s3_key              = "deepface_layer.zip"
-}
-
 # 4. Lambda Function for facial recognition (placeholder)
 resource "aws_lambda_function" "frame_processor" {
   function_name = "firehouse_frame_processor"
   role          = aws_iam_role.lambda_exec_role.arn
-  runtime       = "python3.11"
-  handler       = "handler.main"
-  filename      = "lambda/frame_processor.zip"
+  package_type  = "Image"
+  image_uri     = "123456789012.dkr.ecr.us-east-2.amazonaws.com/firehouse-frame-processor:latest"
 
   environment {
     variables = {
