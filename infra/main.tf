@@ -53,7 +53,7 @@ resource "aws_iam_role_policy_attachment" "lambda_logs" {
 resource "aws_lambda_layer_version" "deepface_layer" {
   layer_name          = "deepface-dependencies"
   compatible_runtimes = ["python3.11"]
-  s3_bucket           = "ssl-865117862950-lambda-layer  "
+  s3_bucket           = "ssl-865117862950-lambda-layer"
   s3_key              = "deepface_layer.zip"
 }
 
