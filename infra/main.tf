@@ -1,7 +1,7 @@
 # firehouse_infra/main.tf
 
 provider "aws" {
-  region = "us-east-1"  # Change as needed
+  region = "us-east-2"
 }
 
 # 1. Create an S3 bucket for optional frame storage
