@@ -23,10 +23,12 @@ def main(event, context):
         frame = cv2.imdecode(np_arr, cv2.IMREAD_COLOR)
 
         # Run DeepFace verification against a reference image
-        ref_path = "/tmp/ref.jpg"
-        s3.download_file(bucket_name, "ref.jpg", ref_path)
+        ref_path = "/tmp/reference_image.jpg"
+        s3.download_file(bucket_name, "reference_image.jpg", ref_path)
 
         result = DeepFace.verify(img1_path=ref_path, img2=frame, enforce_detection=False)
+
+        print(f"Verification result: {result}")
 
         # Log result
         is_verified = result.get("verified", False)
