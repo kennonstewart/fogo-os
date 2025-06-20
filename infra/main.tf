@@ -55,7 +55,7 @@ resource "aws_lambda_function" "frame_processor" {
   function_name = "firehouse_frame_processor"
   role          = aws_iam_role.lambda_exec_role.arn
   package_type  = "Image"
-  image_uri     = "123456789012.dkr.ecr.us-east-2.amazonaws.com/firehouse-frame-processor:latest"
+  image_uri = "865117862950.dkr.ecr.us-east-2.amazonaws.com/firehouse-frame-processor:latest"
 
   environment {
     variables = {
