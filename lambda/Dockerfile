@@ -14,3 +14,6 @@ COPY handler.py .
 
 # Set the Lambda handler
 CMD ["handler.main"]
+
+# do the dependency sanity check
+RUN python -c "import opencv_python_headless, deepface, numpy, boto3; print('Dependencies loaded successfully')"
