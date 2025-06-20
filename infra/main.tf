@@ -7,7 +7,7 @@ provider "aws" {
 # 1. Create an S3 bucket for optional frame storage
 resource "aws_s3_bucket" "frame_store" {
   # bucket = "firehouse-frame-archive-${random_id.suffix.hex}"
-  bucket = "firehouse-frame-archive
+  bucket = "firehouse-frame-archive"
   force_destroy = true
 }
 
