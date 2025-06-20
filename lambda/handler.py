@@ -26,6 +26,10 @@ def main(event, context):
         ref_path = "/tmp/reference_image.jpg"
         s3.download_file(bucket_name, "reference_image.jpg", ref_path)
 
+        # verify the s3 download
+        if not os.path.exists(ref_path):
+            raise FileNotFoundError(f"Reference image not found at {ref_path}")
+
         result = DeepFace.verify(img1_path=ref_path, img2=frame, enforce_detection=False)
 
         print(f"Verification result: {result}")
