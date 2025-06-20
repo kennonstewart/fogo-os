@@ -3,7 +3,7 @@ import json
 import base64
 import boto3
 import os
-import cv2
+from opencv_python_headless import cv2
 import numpy as np
 from deepface import DeepFace
 from datetime import datetime
