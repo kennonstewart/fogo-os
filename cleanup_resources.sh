@@ -5,11 +5,14 @@ set -e
 AWS_REGION="us-east-2"
 ACCOUNT_ID="865117862950"
 ROLE_NAME="firehouse_lambda_exec"
-BUCKET_NAME="ssl-${ACCOUNT_ID}-lambda-layer"
+BUCKET_NAME="firehouse-frame-archive"
 TABLE_NAME="verification_flags"
 
 echo "🔻 Deleting S3 bucket: $BUCKET_NAME..."
 aws s3 rb s3://$BUCKET_NAME --force
+
+echo "Deleting Lambda function: firehouse_frame..."
+aws lambda delete-function --function-name firehouse_frame_processor --region $AWS_REGION
 
 echo "🔻 Deleting DynamoDB table: $TABLE_NAME..."
 aws dynamodb delete-table --table-name $TABLE_NAME --region $AWS_REGION

@@ -51,12 +51,14 @@ resource "aws_iam_role_policy_attachment" "lambda_logs" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }
 
-# 4. Lambda Function for facial recognition (placeholder)
 resource "aws_lambda_function" "frame_processor" {
   function_name = "firehouse_frame_processor"
   role          = aws_iam_role.lambda_exec_role.arn
   package_type  = "Image"
-  image_uri = "865117862950.dkr.ecr.us-east-2.amazonaws.com/firehouse-frame-processor:latest"
+  image_uri     = "865117862950.dkr.ecr.us-east-2.amazonaws.com/firehouse-frame-processor:latest"
+
+  timeout       = 330
+  memory_size   = 2048 # since apparently deepFace is that heavy
 
   environment {
     variables = {

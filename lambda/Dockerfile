@@ -1,9 +1,14 @@
 
 
-FROM public.ecr.aws/lambda/python:3.11
+FROM public.ecr.aws/lambda/python:3.10
 
 # Set working directory
 WORKDIR /var/task
+
+# Install OS-level dependencies
+RUN yum update -y && \
+    yum install -y gcc gcc-c++ make python3-devel mesa-libGL
+
 
 # Copy requirements and install dependencies
 COPY requirements.txt .
@@ -16,4 +21,4 @@ COPY handler.py .
 CMD ["handler.main"]
 
 # do the dependency sanity check
-RUN python -c "import opencv_python_headless, deepface, numpy, boto3; print('Dependencies loaded successfully')"
+RUN python -c "import cv2, deepface, numpy, boto3; print('Dependencies loaded successfully')"

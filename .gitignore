@@ -7,6 +7,11 @@ __pycache__/
 *.so
 cheat.txt
 
+# terraform 
+*.tfstate
+*.tfstate.*
+.terraform/
+
 # Distribution / packaging
 .Python
 build/
